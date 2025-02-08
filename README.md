@@ -1,12 +1,12 @@
-# Jyotish (Vedic Astrology) API
+# Jyotish (Vedic Astrology) API 
 
-A PHP-based REST API for Jyotish (Vedic Astrology) calculations, built on top of the [kunjara/jyotish](https://github.com/kunjara/jyotish) library. This API is containerized and provides a wide range of Vedic astrology calculations, including planetary positions, Dashas, Yogas, and more.
+A REST API for Jyotish (Vedic Astrology) calculations, built on top of the [kunjara/jyotish](https://github.com/kunjara/jyotish) library. Jyotish API  containerized and provides a wide range of Vedic astrology calculations, including planetary positions, Dashas, Yogas, and more.
 
 ## Features
 
 ### Chart Calculations
 
-- **Varga (Divisional) Charts**: D1 to D60.
+- **Varga (Divisional) Charts**: D1, D2, D3, D4, D7, D9, D10, D12, D16, D20, D24, D27, D30, D40, D45, D60
 - **Planetary Positions**: Detailed positions of planets.
 - **Lagna (Ascendant) Calculations**.
 - **Nakshatra Positions**: Lunar mansions.
@@ -49,6 +49,26 @@ A PHP-based REST API for Jyotish (Vedic Astrology) calculations, built on top of
 - **DST Handling**: Accounts for Daylight Saving Time shifts.
 - **Ayanamsha Calculations**: Adjustments for the precession of the equinoxes.
 - **Dasha Calculations (Vimshottari)**: Planetary periods analysis.
+
+## Literature
+
+Most of the calculations are based on the following classical texts:
+
+- Maharishi Parashara. Brihat Parashara Hora Shastra.
+- Maharishi Jaimini. Jaimini Upadesha Sutras.
+- Varahamihira. Brihat Jataka.
+- Varahamihira. Brihat Samhita.
+- Kalyana Varma. Saravali.
+- Satyacharya. Satya Jatakam.
+- Kalidas. Uttara Kalamritam.
+- Venkatesh Sharma. Sarvarth Chintamani.
+- Mantreswara. Phaladeepika.
+- Vaidyanatha Dikshita. Jataka Parijata.
+- Srimad-Bhagavatam.
+- Bhavishya Purana.
+- Surya Siddhanta.
+- Manu-Samhita.
+
 
 ## Installation
 
@@ -106,33 +126,34 @@ Calculates an astrological chart based on provided parameters.
 - `varga` (string, optional): Varga divisions to calculate (comma-separated, default: `'D1'`).
 - `infolevel` (string, optional): Information levels to include (comma-separated).
 
-#### Example Request
+curl -X 'GET' \
+  'http://localhost:9393/api/calculate?latitude=28.6139&longitude=77.209&year=2023&month=12&day=25&hour=12&min=0&sec=0&time_zone=Asia%2FTehran&dst_hour=0&dst_min=0&nesting=0&varga=D1%2CD9&infolevel=basic%2Cpanchanga%2Ctransit' \
+  -H 'accept: application/json'
 
-```json
-{
-  "latitude": 28.6139,
-  "longitude": 77.2090,
-  "year": 2023,
-  "month": 10,
-  "day": 14,
-  "hour": 12,
-  "min": 30,
-  "sec": 0,
-  "time_zone": "Asia/Tehran",
-  "dst_hour": 0,
-  "dst_min": 0,
-  "nesting": 0,
-  "varga": "D1,D9",
-  "infolevel": "graha,lagna,dasha,yogas"
-}
-```
 
 #### Example Response
 
 ```json
 {
   "chart": {
-    "graha": { /* Planetary positions and attributes */ },
+    "user": {
+      "datetime": "2023-12-25 12:00:00",
+      "timezone": "+05:45",
+      "longitude": 77.209,
+      "latitude": 28.6139,
+      "altitude": 0
+    },
+    "graha": { 
+      "Sy": /* Surya (Sun) calculations */,
+      "Ch": /* Chandra (Moon) calculations */,
+      "Ma": /* Mangal (Mars) calculations */,
+      "Bu": /* Buddha (Mercury) calculations */,
+      "Gu": /* Guru (Jupiter) calculations */,
+      "Sk": /* Shukra (Benus) calculations */,
+      "Sa": /* Shani (Saturn) calculations */,
+      "Ra": /* Rahu calculations */,
+      "Ke": /* Ketu calculations */,
+    },
     "lagna": { /* Ascendant information */ },
     "dasha": { /* Dasha periods */ },
     "ashtakavarga": { /* Ashtakavarga calculations */ },
@@ -158,8 +179,9 @@ Calculates an astrological chart for the current moment.
 #### Example Request
 
 ```
-GET /api/now?latitude=28.6139&longitude=77.2090
-```
+curl -X 'GET' \
+  'http://localhost:9393/api/now?latitude=35.708309&longitude=51.38073' \
+  -H 'accept: application/json'```
 
 #### Example Response
 
@@ -231,25 +253,6 @@ In case of errors, the API returns an appropriate HTTP status code along with an
 
 Contributions are welcome! Please open an issue or submit a pull request on the repository's GitHub page for any improvements, bug fixes, or new features.
 
-## Literature
-
-Most of the calculations are based on the following classical texts:
-
-- Maharishi Parashara. Brihat Parashara Hora Shastra.
-- Maharishi Jaimini. Jaimini Upadesha Sutras.
-- Varahamihira. Brihat Jataka.
-- Varahamihira. Brihat Samhita.
-- Kalyana Varma. Saravali.
-- Satyacharya. Satya Jatakam.
-- Kalidas. Uttara Kalamritam.
-- Venkatesh Sharma. Sarvarth Chintamani.
-- Mantreswara. Phaladeepika.
-- Vaidyanatha Dikshita. Jataka Parijata.
-- Srimad-Bhagavatam.
-- Bhavishya Purana.
-- Surya Siddhanta.
-- Manu-Samhita.
-
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
@@ -258,8 +261,4 @@ The Jyotish library used in this project is licensed under the GNU General Publi
 
 ## Contact
 
-For any inquiries, questions, or support, please contact [support@example.com](mailto:support@example.com).
-
----
-
-This README should provide a comprehensive overview of your Vedic Astrology API project, including installation instructions, API documentation, response formats, error handling, system requirements, dependencies, and references to the classical texts that underpin the calculations. Feel free to customize any section to better fit your project's needs.
+For any inquiries, questions, or support, please contact [on Telegram](http://t.me/samanesmaeil).
