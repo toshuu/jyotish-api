@@ -1,0 +1,4 @@
+<?php
+
+// replace with your swetests directory
+const SWETEST_PATH = '/users/teal33t/app/api/swetest/src';
