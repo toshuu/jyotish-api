@@ -7,6 +7,6 @@
 /public/bundles/
 /var/
 /vendor/
-/swetest/src/*.o
+swetest/src/*.o
 .env
 ###< symfony/framework-bundle ###
