@@ -126,9 +126,12 @@ Calculates an astrological chart based on provided parameters.
 - `varga` (string, optional): Varga divisions to calculate (comma-separated, default: `'D1'`).
 - `infolevel` (string, optional): Information levels to include (comma-separated).
 
-curl -X 'GET' \
-  'http://localhost:9393/api/calculate?latitude=28.6139&longitude=77.209&year=2023&month=12&day=25&hour=12&min=0&sec=0&time_zone=Asia%2FTehran&dst_hour=0&dst_min=0&nesting=0&varga=D1%2CD9&infolevel=basic%2Cpanchanga%2Ctransit' \
-  -H 'accept: application/json'
+   ```bash
+  curl -X 'GET' \
+    'http://localhost:9393/api/calculate?latitude=28.6139&longitude=77.209&year=2023&month=12&day=25&hour=12&min=0&sec=0&time_zone=Asia%2FTehran&dst_hour=0&dst_min=0&nesting=0&varga=D1%2CD9&infolevel=basic%2Cpanchanga%2Ctransit' \
+    -H 'accept: application/json'
+    ```
+
 
 
 #### Example Response
