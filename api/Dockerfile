@@ -61,22 +61,23 @@ COPY composer.json ./
 
 # Install composer dependencies
 RUN set -eux; \
-    composer install; \
+    composer install --verbose --no-interaction; \
     composer clear-cache
 
 # Copy rest of the application
 COPY . .
+
+# After copying application files but before clearing cache
+RUN mkdir -p /var/www/api/var/cache /var/www/api/var/log && \
+    chown -R www-data:www-data /var/www/api/var && \
+    chmod -R 777 /var/www/api/var
 
 # Run composer dump-autoload optimizing for production
 RUN set -eux; \
     composer dump-autoload --optimize;
 
 # Set proper permissions
-RUN chown -R www-data:www-data .
 
-# Run make in swetest/src directory
-RUN cd swetest/src && make clean && make
-RUN chmod 777 swetest/src && chmod +x swetest/src/swetest
 
 # Configure Nginx
 RUN echo ' \
@@ -113,6 +114,7 @@ RUN php bin/console assets:install --symlink
 
 # Clear Symfony cache
 RUN php bin/console cache:clear
+
 
 # Expose port
 EXPOSE 9393
