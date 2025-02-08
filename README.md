@@ -1,9 +1,6 @@
-# Vedic Astrology API
+# Jyotish (Vedic Astrology) API
 
-A PHP-based REST API for Vedic astrology calculations, based on [kunjara/jyotish](https://github.com/kunjara/jyotish).
-This API is updated, containerized, and provides vedic astrology (jyotish) calculations including planetary positions, Dashas, Yogas, and more.
-
-
+A PHP-based REST API for Jyotish (Vedic Astrology) calculations, built on top of the [kunjara/jyotish](https://github.com/kunjara/jyotish) library. This API is containerized and provides a wide range of Vedic astrology calculations, including planetary positions, Dashas, Yogas, and more.
 
 ## Features
 
@@ -46,14 +43,12 @@ This API is updated, containerized, and provides vedic astrology (jyotish) calcu
 - **Raja Yoga**: Combinations indicating power and authority.
 - **Sannyasa Yoga**: Combinations indicating renunciation.
 
-#### Additional Features
+### Additional Features
 
 - **Automatic Timezone Detection**: Adjusts calculations based on the provided location.
 - **DST Handling**: Accounts for Daylight Saving Time shifts.
 - **Ayanamsha Calculations**: Adjustments for the precession of the equinoxes.
 - **Dasha Calculations (Vimshottari)**: Planetary periods analysis.
-
-
 
 ## Installation
 
@@ -62,8 +57,8 @@ To install and run the Vedic Astrology API locally, follow these steps:
 1. **Clone the repository**:
 
    ```bash
-   git clone <repository-url>
-   cd <repository-directory>
+   git clone https://github.com/teal33t/jyotish-api.git
+   cd jyotish-api
    ```
 
 2. **Build and start the Docker container**:
@@ -123,7 +118,7 @@ Calculates an astrological chart based on provided parameters.
   "hour": 12,
   "min": 30,
   "sec": 0,
-  "time_zone": "Asia/Kolkata",
+  "time_zone": "Asia/Tehran",
   "dst_hour": 0,
   "dst_min": 0,
   "nesting": 0,
@@ -227,18 +222,44 @@ In case of errors, the API returns an appropriate HTTP status code along with an
 - **Symfony Framework**.
 - **Swiss Ephemeris library**: For astronomical calculations.
 
+## Dependencies
+
+- **Jyotish Library**: [kunjara/jyotish](https://github.com/kunjara/jyotish) for Vedic astrology calculations.
+- **Swiss Ephemeris**: [kunjara/swetest](https://github.com/kunjara/swetest) for astronomical data.
+
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request on the repository's GitHub page for any improvements, bug fixes, or new features.
+
+## Literature
+
+Most of the calculations are based on the following classical texts:
+
+- Maharishi Parashara. Brihat Parashara Hora Shastra.
+- Maharishi Jaimini. Jaimini Upadesha Sutras.
+- Varahamihira. Brihat Jataka.
+- Varahamihira. Brihat Samhita.
+- Kalyana Varma. Saravali.
+- Satyacharya. Satya Jatakam.
+- Kalidas. Uttara Kalamritam.
+- Venkatesh Sharma. Sarvarth Chintamani.
+- Mantreswara. Phaladeepika.
+- Vaidyanatha Dikshita. Jataka Parijata.
+- Srimad-Bhagavatam.
+- Bhavishya Purana.
+- Surya Siddhanta.
+- Manu-Samhita.
 
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
+The Jyotish library used in this project is licensed under the GNU General Public License version 2 or later. See the [Jyotish LICENSE](https://github.com/kunjara/jyotish/blob/master/LICENSE) for more details.
+
 ## Contact
 
-For any inqueries, questions or support, please contact [support@example.com](mailto:support@example.com).
+For any inquiries, questions, or support, please contact [support@example.com](mailto:support@example.com).
 
 ---
 
-Feel free to suggest any improvements or additional features you'd like to see in the API.
+This README should provide a comprehensive overview of your Vedic Astrology API project, including installation instructions, API documentation, response formats, error handling, system requirements, dependencies, and references to the classical texts that underpin the calculations. Feel free to customize any section to better fit your project's needs.
