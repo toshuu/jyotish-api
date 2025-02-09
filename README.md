@@ -129,6 +129,13 @@ GET /api/calculate
 
 Calculates an astrological chart based on provided parameters.
 
+
+**Request**
+
+```bash
+http://localhost:9393/api/calculate?latitude=37.28077&longitude=49.583057&year=2023&month=12&day=25&hour=12&min=0&sec=0&time_zone=Asia/Tehran&dst_hour=0&dst_min=0&nesting=0&varga=D1,D9&infolevel=basic,panchanga,transit
+```
+
 **Query Parameters**:
 
 | Parameter  | Type    | Required | Description                           | Example    |
@@ -155,9 +162,9 @@ Calculates an astrological chart based on provided parameters.
   "chart": {
     "user": {
       "datetime": "2023-12-25 12:00:00",
-      "timezone": "+05:45",
-      "longitude": 77.209,
-      "latitude": 28.6139,
+      "timezone": "+03:30",
+      "longitude": 49.583057,
+      "latitude": 37.28077,
       "altitude": 0
     },
     "graha": {
