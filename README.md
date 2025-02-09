@@ -449,7 +449,7 @@ In case of errors, the API returns a JSON response with an error message and app
 ```json
 {
     "status": 400,
-    "message":"No route found for \u0022GET http:\/\/localhost:9393\/api\/not_registered_route\u0022"}
+    "message":"No route found for GET http://localhost:9393/api/not_registered_route/"
 }
 ```
 
