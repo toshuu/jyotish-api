@@ -7,7 +7,7 @@ A REST API for Jyotish (Vedic Astrology) calculations, built on top of the [kunj
 ### Chart Calculations
 
 - **Varga (Divisional) Charts**: D1, D2, D3, D4, D7, D9, D10, D12, D16, D20, D24, D27, D30, D40, D45, D60
-- **Planetary Positions**: Detailed positions of planets.
+- **Planetary Positions**: Detailed positions of planets, Surya (Sun), Chandra (Moon), Mangal (Mars), Buddha (Mercury), Guru (Jupiter), Shukra (Venus), Shani (Staurn), Rahu and Ketu.
 - **Lagna (Ascendant) Calculations**.
 - **Nakshatra Positions**: Lunar mansions.
 
@@ -49,6 +49,7 @@ A REST API for Jyotish (Vedic Astrology) calculations, built on top of the [kunj
 - **DST Handling**: Accounts for Daylight Saving Time shifts.
 - **Ayanamsha Calculations**: Adjustments for the precession of the equinoxes.
 - **Dasha Calculations (Vimshottari)**: Planetary periods analysis.
+- **Supported Ayanamshas**: Deluce ,Djwhalkhul ,Fagan ,Jnbhasin ,Krishnamurti ,Lahiri ,Raman ,Sassanian ,Ushashashi ,Yukteshwar
 
 ## Literature
 
