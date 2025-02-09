@@ -1,5 +1,4 @@
-# Jyotish API
-# Vedic Astrology Self-Hosted API 
+# Self-Hosted Jyotish (Vedic Astrology) API
 
 A REST API for Jyotish (Vedic Astrology) calculations, built on top of the [kunjara/jyotish](https://github.com/kunjara/jyotish) library. Jyotish API  containerized and provides a wide range of Vedic astrology calculations, including planetary positions, Dashas, Yogas, and more.
 
@@ -127,7 +126,7 @@ Verifies if the API is running.
 GET /api/calculate
 ```
 
-Calculates an astrological chart based on provided parameters.
+Calculates chart based on provided parameters.
 
 
 **Request**
@@ -431,7 +430,7 @@ http://localhost:9393/api/calculate?latitude=37.28077&longitude=49.583057&year=2
 GET /api/now
 ```
 
-Calculates an astrological chart for the current moment.
+Calculates chart for the current moment.
 
 **Query Parameters**:
 

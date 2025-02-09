@@ -1,5 +1,11 @@
 <?php
-// Lib.php
+/**
+ * @author    Saman Esmaeil
+ * @link      http://github.com/teal33t/jyotish-api for the canonical source repository
+ * @license   GNU General Public License version 3 or later
+ */
+
+
 namespace Jyotish;
 
 use Jyotish\Base\Data;
