@@ -104,6 +104,9 @@ The API documentation is available via Swagger UI:
 
 - **Swagger UI**: [http://localhost:9393/api/doc](http://localhost:9393/api/doc)
 
+![Swagger](swagger_api_doc.png)
+
+
 ## API Endpoints
 
 ### Health Check
