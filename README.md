@@ -55,8 +55,8 @@ A REST API for Jyotish (Vedic Astrology) calculations, built on top of the [kunj
 
 Most of the calculations are based on the following classical texts:
 
-- Maharishi Parashara. Brihat Parashara Hora Shastra.
-- Maharishi Jaimini. Jaimini Upadesha Sutras.
+- [Maharishi Parashara. Brihat Parashara Hora Shastra.](https://archive.org/stream/ParasharaHoraSastra/BrihatParasharaHoraSastraVedicAstrologyEbook_djvu.txt)
+- [Maharishi Jaimini. Jaimini Upadesha Sutras.](https://archive.org/stream/JAIMINISUTRAS_201707/JAIMINI%20SUTRAS_djvu.txt)
 - Varahamihira. Brihat Jataka.
 - Varahamihira. Brihat Samhita.
 - Kalyana Varma. Saravali.
