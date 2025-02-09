@@ -1,7 +1,7 @@
 ![Jyotish API](Jyotish_API.jpg)
 
 # Jyotish API
-
+![PHP](https://badgen.net/badge/icon/PHP7.4?icon=php&label)
 A REST API for Jyotish (Vedic Astrology) calculations, built on top of the [kunjara/jyotish](https://github.com/kunjara/jyotish) library. Jyotish API  containerized and provides a wide range of Vedic astrology calculations, including planetary positions, Dashas, Yogas, and more.
 
 Read full tutorial on Medium: [Jyotish API — Free and Open Source Self-hosted Vedic Astrology API](https://medium.com/@teal33t/jyotish-api-free-and-open-source-self-hosted-vedic-astrology-api-1795e7437555)
