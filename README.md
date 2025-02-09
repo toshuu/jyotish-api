@@ -1,4 +1,5 @@
-# Jyotish (Vedic Astrology) API 
+# Jyotish API
+# Vedic Astrology Self-Hosted API 
 
 A REST API for Jyotish (Vedic Astrology) calculations, built on top of the [kunjara/jyotish](https://github.com/kunjara/jyotish) library. Jyotish API  containerized and provides a wide range of Vedic astrology calculations, including planetary positions, Dashas, Yogas, and more.
 
@@ -105,38 +106,51 @@ The API documentation is available via Swagger UI:
 
 ## API Endpoints
 
-### Calculate Chart (`POST /api/calculate`)
+### Health Check
+
+```http
+GET /api/ping
+```
+
+Verifies if the API is running.
+
+**Response**:
+```json
+{
+    "pong": "success"
+}
+```
+
+### Calculate Chart
+
+```http
+GET /api/calculate
+```
 
 Calculates an astrological chart based on provided parameters.
 
-#### Parameters
+**Query Parameters**:
 
-- `latitude` (float, required): Location latitude (e.g., `28.6139`).
-- `longitude` (float, required): Location longitude (e.g., `77.2090`).
-- `year` (integer, required): Year for calculation (e.g., `2023`).
-- `month` (integer, required): Month for calculation (`1`-`12`).
-- `day` (integer, required): Day for calculation (`1`-`31`).
-- `hour` (integer, required): Hour for calculation (`0`-`23`).
-- `min` (integer, required): Minute for calculation (`0`-`59`).
-- `sec` (integer, required): Second for calculation (`0`-`59`).
-- `time_zone` (string, optional): Timezone for the calculation (default: `'Asia/Tehran'`).
-- `dst_hour` (integer, optional): Daylight Saving Time hours offset (default: `0`).
-- `dst_min` (integer, optional): Daylight Saving Time minutes offset (default: `0`).
-- `nesting` (integer, optional): Nesting level for calculations (default: `0`).
-- `varga` (string, optional): Varga divisions to calculate (comma-separated, default: `'D1'`).
-- `infolevel` (string, optional): Information levels to include (comma-separated).
+| Parameter  | Type    | Required | Description                           | Example    |
+|------------|---------|----------|---------------------------------------|------------|
+| latitude   | float   | Yes      | Location latitude                     | 28.6139    |
+| longitude  | float   | Yes      | Location longitude                    | 77.2090    |
+| year       | integer | Yes      | Year for calculation                  | 2023       |
+| month      | integer | Yes      | Month for calculation (1-12)          | 12         |
+| day        | integer | Yes      | Day for calculation (1-31)            | 25         |
+| hour       | integer | Yes      | Hour for calculation (0-23)           | 12         |
+| min        | integer | Yes      | Minute for calculation (0-59)         | 0          |
+| sec        | integer | Yes      | Second for calculation (0-59)         | 0          |
+| time_zone  | string  | No       | Timezone for calculation             | Asia/Tehran |
+| dst_hour   | integer | No       | DST hours offset                      | 0          |
+| dst_min    | integer | No       | DST minutes offset                    | 0          |
+| nesting    | integer | No       | Nesting level for calculations        | 0          |
+| varga      | string  | No       | Varga divisions (comma-separated)     | D1,D9      |
+| infolevel  | string  | No       | Info levels to include               | basic,panchanga |
 
-   ```bash
-  curl -X 'GET' \
-    'http://localhost:9393/api/calculate?latitude=28.6139&longitude=77.209&year=2023&month=12&day=25&hour=12&min=0&sec=0&time_zone=Asia%2FTehran&dst_hour=0&dst_min=0&nesting=0&varga=D1%2CD9&infolevel=basic%2Cpanchanga%2Ctransit' \
-    -H 'accept: application/json'
-    ```
-
-
-
-#### Example Response
-
+**Response**:
 ```json
+
 {
   "chart": {
     "user": {
@@ -146,119 +160,307 @@ Calculates an astrological chart based on provided parameters.
       "latitude": 28.6139,
       "altitude": 0
     },
-    "graha": { 
-      "Sy": /* Surya (Sun) calculations */,
-      "Ch": /* Chandra (Moon) calculations */,
-      "Ma": /* Mangal (Mars) calculations */,
-      "Bu": /* Buddha (Mercury) calculations */,
-      "Gu": /* Guru (Jupiter) calculations */,
-      "Sk": /* Shukra (Benus) calculations */,
-      "Sa": /* Shani (Saturn) calculations */,
-      "Ra": /* Rahu calculations */,
-      "Ke": /* Ketu calculations */,
+    "graha": {
+      "Sy": {
+        "longitude": 248.983163,
+        "latitude": 0.0001772,
+        "speed": 1.0183709,
+        "ascension": 273.4600331,
+        "declination": -23.3978588,
+        "rashi": 9,
+        "degree": 8.98316299999999,
+        "nakshatra": {
+          "anga": "nakshatra",
+          "key": 19,
+          "ratio": 1,
+          "abhijit": false,
+          "left": 32.62627750000016,
+          "name": "Moola",
+          "pada": 3
+        },
+        "astangata": null,
+        "rashiAvastha": "friend",
+        "vargottama": false,
+        "yuddha": null,
+        "gocharastha": 0,
+        "bhavaCharacter": "mishra",
+        "tempRelation": {
+          "Ch": -1,
+          "Ma": 1,
+          "Bu": -1,
+          "Gu": -1,
+          "Sk": 1,
+          "Sa": 1,
+          "Ra": 1,
+          "Ke": 1
+        },
+        "relation": {
+          "Ch": 0,
+          "Ma": 2,
+          "Bu": -1,
+          "Gu": 0,
+          "Sk": 0,
+          "Sa": 0,
+          "Ra": 0,
+          "Ke": 0,
+          "Sy": null
+        },
+        "yogakaraka": false,
+        "mrityu": false,
+        "pushkaraNavamsha": false,
+        "pushkaraBhaga": false,
+        "avastha": {
+          "baladi": "kumara",
+          "jagradi": "swapna",
+          "deeptadi": [
+            "shanta"
+          ]
+        },
+        "dispositor": "Gu"
+      },
+      "Ch": {},
+      "Ma": {},
+      "Bu": {},
+      "Gu": {},
+      "Sk": {},
+      "Sa": {},
+      "Ra": {},
+      "Ke": {},
     },
-    "lagna": { /* Ascendant information */ },
-    "dasha": { /* Dasha periods */ },
-    "ashtakavarga": { /* Ashtakavarga calculations */ },
-    "grahabala": { /* Planetary strength */ },
-    "rashibala": { /* Sign strength */ },
-    "yogas": { /* Yoga combinations */ },
-    "panchanga": { /* Panchanga elements */ }
+    "bhava": {
+      "1": {
+        "longitude": 327.9252867,
+        "ascension": 330.1017467,
+        "declination": -12.1928517,
+        "rashi": 11,
+        "degree": 27.925286700000015
+      },
+      "2": {},
+      "3": {},
+      "4": {},
+      "5": {},
+      "6": {},
+      "7": {},
+      "8": {},
+      "9": {},
+      "10": {},
+      "11": {},
+      "12": {},
+    },
+    "lagna": {
+      "Lg": {
+        "longitude": 327.9252867,
+        "ascension": 330.1017467,
+        "declination": -12.1928517,
+        "rashi": 11,
+        "degree": 27.925286700000015,
+        "nakshatra": {
+          "anga": "nakshatra",
+          "key": 25,
+          "ratio": 1,
+          "abhijit": false,
+          "left": 40.56034975,
+          "name": "Purva Bhadrapada",
+          "pada": 3
+        }
+      },
+      "MLg": {
+        "longitude": 240.7308939,
+        "ascension": 238.5809717,
+        "declination": -20.3009012,
+        "rashi": 9,
+        "degree": 0.7308939000000123
+      }
+    },
+    "varga": {
+      "D9": {
+        "bhava": {
+          "1": {
+            "rashi": 3,
+            "degree": 11.327580300000125,
+            "longitude": 71.32758030000012
+          },
+          "2": {},
+          "3": {},
+          "4": {},
+          "5": {},
+          "6": {},
+          "7": {},
+          "8": {},
+          "9": {},
+          "10": {},
+          "11": {},
+          "12": {},
+        },
+        "graha": {
+          "Sy": {
+            "rashi": 3,
+            "degree": 20.84846699999991,
+            "speed": 1.0183709,
+            "longitude": 80.84846699999991
+          },
+          "Ch": {},
+          "Ma": {},
+          "Bu": {},
+          "Gu": {},
+          "Sk": {},
+          "Sa": {},
+          "Ra": {},
+          "Ke": {},
+        },
+        "lagna": {
+          "Lg": {
+            "rashi": 3,
+            "degree": 11.327580300000125,
+            "longitude": 71.32758030000012
+          },
+          "MLg": {
+            "rashi": 1,
+            "degree": 6.578045100000111,
+            "longitude": 6.578045100000111
+          }
+        }
+      }
+    },
+    "panchanga": {
+      "tithi": {
+        "anga": "tithi",
+        "key": 14,
+        "name": "Chaturdashi",
+        "paksha": "shukla",
+        "left": 75.43356083333303
+      },
+      "nakshatra": {
+        "anga": "nakshatra",
+        "key": 4,
+        "ratio": 1,
+        "abhijit": false,
+        "left": 40.51648225000003,
+        "name": "Rohini",
+        "pada": 3
+      },
+      "yoga": {
+        "anga": "yoga",
+        "key": 23,
+        "name": "Shubha",
+        "left": 73.14275974999997
+      },
+      "vara": {
+        "anga": "vara",
+        "left": 81.29129302863754,
+        "key": "Ch",
+        "week": "1",
+        "name": "Somavar"
+      },
+      "karana": {
+        "anga": "karana",
+        "key": 5,
+        "name": "Gara",
+        "left": 50.867121666666065
+      }
+    },
+    "rising": {
+      "Sy": [
+        {
+          "rising": "2023-12-24 07:30:04",
+          "setting": "2023-12-24 17:40:54"
+        },
+        {
+          "rising": "2023-12-25 07:30:31",
+          "setting": "2023-12-25 17:41:27"
+        },
+        {
+          "rising": "2023-12-26 07:30:56",
+          "setting": "2023-12-26 17:42:02"
+        }
+      ]
+    },
+    "kala": {
+      "hora": {
+        "number": 7,
+        "key": "Bu",
+        "interval": 3054.6666666666665,
+        "left": 47.173723264949835,
+        "type": "yama",
+        "end": "2023-12-25 13:26:54"
+      }
+    },
+    "dasha": {
+      "nesting": 0,
+      "type": "vimshottari",
+      "key": "",
+      "duration": 3786834240,
+      "start": "2018-01-12 22:49:09",
+      "end": "2138-01-13 01:13:09",
+      "periods": {
+        "Ch": {
+          "nesting": 1,
+          "type": "mahadasha",
+          "key": "Ch",
+          "duration": 315569520,
+          "start": "2018-01-12 22:49:09",
+          "end": "2028-01-13 09:01:09"
+        },
+        "Ma": {},
+        "Ra": {},
+        "Gu": {},
+        "Sa": {},
+        "Bu": {},
+        "Ke": {},,
+        "Sk": {},,
+        "Sy": {},
+      }
+    }
   },
-  "duration_of_response": 0.123,
-  "created_at": "2023-10-14T12:30:00Z"
+  "duration_of_response": 0.12,
+  "created_at": "2025-02-08 23:55:46"
 }
+
 ```
 
-### Current Chart (`GET /api/now`)
+### Current Time Chart
+
+```http
+GET /api/now
+```
 
 Calculates an astrological chart for the current moment.
 
-#### Parameters
+**Query Parameters**:
 
-- `latitude` (float, optional): Location latitude (default: `35.7219`).
-- `longitude` (float, optional): Location longitude (default: `51.3347`).
+| Parameter  | Type    | Required | Description        | Default    |
+|------------|---------|----------|--------------------|------------|
+| latitude   | float   | No       | Location latitude  | 35.7219    |
+| longitude  | float   | No       | Location longitude | 51.3347    |
 
-#### Example Request
-
-```
-curl -X 'GET' \
-  'http://localhost:9393/api/now?latitude=35.708309&longitude=51.38073' \
-  -H 'accept: application/json'```
-
-#### Example Response
-
+**Response**:
 ```json
 {
-  "chart": {
-    "graha": { /* Planetary positions and attributes */ },
-    "lagna": { /* Ascendant information */ },
-    "dasha": { /* Dasha periods */ },
-    "ashtakavarga": { /* Ashtakavarga calculations */ },
-    "grahabala": { /* Planetary strength */ },
-    "rashibala": { /* Sign strength */ },
-    "yogas": { /* Yoga combinations */ },
-    "panchanga": { /* Panchanga elements */ }
-  },
-  "duration_of_response": 0.098,
-  "created_at": "2023-10-14T12:30:00Z"
+    "chart": { /* Chart data */ },
+    "duration_of_response": 0.123,
+    "created_at": "2023-12-25 12:00:00"
 }
 ```
 
-## Response Format
-
-Responses from the API are in JSON format. The structure includes:
-
-- **chart**: An object containing detailed astrological data.
-  - **graha**: Planetary positions and attributes.
-  - **lagna**: Ascendant information.
-  - **dasha**: Dasha periods and sub-periods.
-  - **ashtakavarga**: Ashtakavarga calculations.
-  - **grahabala**: Planetary strength metrics.
-  - **rashibala**: Zodiac sign strengths.
-  - **yogas**: Identified Yogas and their descriptions.
-  - **panchanga**: Panchanga elements like Tithi, Nakshatra, etc.
-- **duration_of_response**: Time taken to generate the response (in seconds).
-- **created_at**: Timestamp of when the response was generated.
-
 ## Error Handling
 
-In case of errors, the API returns an appropriate HTTP status code along with an error message.
+In case of errors, the API returns a JSON response with an error message and appropriate HTTP status code:
 
-- **400 Bad Request**: Invalid input parameters.
+```json
+{
+    "status": 400,
+    "message":"No route found for \u0022GET http:\/\/localhost:9393\/api\/not_registered_route\u0022"}
+}
+```
 
-  ```json
-  {
-    "error": "Invalid latitude value"
-  }
-  ```
 
-- **500 Internal Server Error**: Internal processing error.
+## Support
 
-  ```json
-  {
-    "error": "An internal error occurred"
-  }
-  ```
-
-## System Requirements
-
-- **PHP 7.4** or higher.
-- **Symfony Framework**.
-- **Swiss Ephemeris library**: For astronomical calculations.
-
-## Dependencies
-
-- **Jyotish Library**: [kunjara/jyotish](https://github.com/kunjara/jyotish) for Vedic astrology calculations.
-- **Swiss Ephemeris**: [kunjara/swetest](https://github.com/kunjara/swetest) for astronomical data.
-
-## Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request on the repository's GitHub page for any improvements, bug fixes, or new features.
+For issues, feature requests, or questions, please open an issue in the GitHub repository.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the GNU License V3 - see the LICENSE file for details.
 
 The Jyotish library used in this project is licensed under the GNU General Public License version 2 or later. See the [Jyotish LICENSE](https://github.com/kunjara/jyotish/blob/master/LICENSE) for more details.
 
