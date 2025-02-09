@@ -1,3 +1,5 @@
+![Jyotish API](Jyotish_API.jpg)
+
 # Jyotish API
 
 A REST API for Jyotish (Vedic Astrology) calculations, built on top of the [kunjara/jyotish](https://github.com/kunjara/jyotish) library. Jyotish API  containerized and provides a wide range of Vedic astrology calculations, including planetary positions, Dashas, Yogas, and more.
