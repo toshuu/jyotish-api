@@ -57,7 +57,7 @@ Most of the calculations are based on the following classical texts:
 
 - [Maharishi Parashara. Brihat Parashara Hora Shastra.](https://archive.org/stream/ParasharaHoraSastra/BrihatParasharaHoraSastraVedicAstrologyEbook_djvu.txt)
 - [Maharishi Jaimini. Jaimini Upadesha Sutras.](https://archive.org/stream/JAIMINISUTRAS_201707/JAIMINI%20SUTRAS_djvu.txt)
-- Varahamihira. Brihat Jataka.
+- [Varahamihira. Brihat Jataka](https://archive.org/stream/BrihatJatakaOfVarahamihiraBySwamiVijnananda/Brihat%20Jataka%20of%20Varahamihira%20By%20Swami%20Vijnananda_djvu.txt).
 - Varahamihira. Brihat Samhita.
 - Kalyana Varma. Saravali.
 - Satyacharya. Satya Jatakam.
