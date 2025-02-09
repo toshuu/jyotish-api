@@ -58,10 +58,10 @@ Most of the calculations are based on the following classical texts:
 - [Maharishi Parashara. Brihat Parashara Hora Shastra.](https://archive.org/stream/ParasharaHoraSastra/BrihatParasharaHoraSastraVedicAstrologyEbook_djvu.txt)
 - [Maharishi Jaimini. Jaimini Upadesha Sutras.](https://archive.org/stream/JAIMINISUTRAS_201707/JAIMINI%20SUTRAS_djvu.txt)
 - [Varahamihira. Brihat Jataka](https://archive.org/stream/BrihatJatakaOfVarahamihiraBySwamiVijnananda/Brihat%20Jataka%20of%20Varahamihira%20By%20Swami%20Vijnananda_djvu.txt).
-- Varahamihira. Brihat Samhita.
-- Kalyana Varma. Saravali.
-- Satyacharya. Satya Jatakam.
-- Kalidas. Uttara Kalamritam.
+- [Varahamihira. Brihat Samhita.](https://archive.org/stream/Brihatsamhita/brihatsamhita_djvu.txt)
+- [Kalyana Varma. Saravali.](https://archive.org/stream/KalyanaVarmasSaravali_201707/Kalyana+Varmas+Saravali_djvu.txt)
+- [Satyacharya. Satya Jatakam.](https://archive.org/stream/SatyaJataka/Satya%20Jataka_djvu.txt)
+- [Kalidas. Uttara Kalamritam.](https://archive.org/stream/AdityaHridayamRevised2015112/1%20VRY%2038_djvu.txt)
 - Venkatesh Sharma. Sarvarth Chintamani.
 - Mantreswara. Phaladeepika.
 - Vaidyanatha Dikshita. Jataka Parijata.
