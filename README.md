@@ -1,10 +1,6 @@
-![Jyotish API](Jyotish_API.jpg)
-
 # Jyotish API
 
 A REST API for Jyotish (Vedic Astrology) calculations, built on top of the [kunjara/jyotish](https://github.com/kunjara/jyotish) library. Jyotish API  containerized and provides a wide range of Vedic astrology calculations, including planetary positions, Dashas, Yogas, and more.
-
-Read full tutorial on Medium: [Jyotish API — Free and Open Source Self-hosted Vedic Astrology API](https://medium.com/@teal33t/jyotish-api-free-and-open-source-self-hosted-vedic-astrology-api-1795e7437555)
 
 ## Features
 
@@ -59,13 +55,13 @@ Read full tutorial on Medium: [Jyotish API — Free and Open Source Self-hosted 
 
 Most of the calculations are based on the following classical texts:
 
-- [Maharishi Parashara. Brihat Parashara Hora Shastra.](https://archive.org/stream/ParasharaHoraSastra/BrihatParasharaHoraSastraVedicAstrologyEbook_djvu.txt)
-- [Maharishi Jaimini. Jaimini Upadesha Sutras.](https://archive.org/stream/JAIMINISUTRAS_201707/JAIMINI%20SUTRAS_djvu.txt)
-- [Varahamihira. Brihat Jataka](https://archive.org/stream/BrihatJatakaOfVarahamihiraBySwamiVijnananda/Brihat%20Jataka%20of%20Varahamihira%20By%20Swami%20Vijnananda_djvu.txt).
-- [Varahamihira. Brihat Samhita.](https://archive.org/stream/Brihatsamhita/brihatsamhita_djvu.txt)
-- [Kalyana Varma. Saravali.](https://archive.org/stream/KalyanaVarmasSaravali_201707/Kalyana+Varmas+Saravali_djvu.txt)
-- [Satyacharya. Satya Jatakam.](https://archive.org/stream/SatyaJataka/Satya%20Jataka_djvu.txt)
-- [Kalidas. Uttara Kalamritam.](https://archive.org/stream/AdityaHridayamRevised2015112/1%20VRY%2038_djvu.txt)
+- Maharishi Parashara. Brihat Parashara Hora Shastra.
+- Maharishi Jaimini. Jaimini Upadesha Sutras.
+- Varahamihira. Brihat Jataka.
+- Varahamihira. Brihat Samhita.
+- Kalyana Varma. Saravali.
+- Satyacharya. Satya Jatakam.
+- Kalidas. Uttara Kalamritam.
 - Venkatesh Sharma. Sarvarth Chintamani.
 - Mantreswara. Phaladeepika.
 - Vaidyanatha Dikshita. Jataka Parijata.
