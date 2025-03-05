@@ -55,20 +55,20 @@ A REST API for Jyotish (Vedic Astrology) calculations, built on top of the [kunj
 
 Most of the calculations are based on the following classical texts:
 
-- Maharishi Parashara. Brihat Parashara Hora Shastra.
-- Maharishi Jaimini. Jaimini Upadesha Sutras.
-- Varahamihira. Brihat Jataka.
-- Varahamihira. Brihat Samhita.
-- Kalyana Varma. Saravali.
-- Satyacharya. Satya Jatakam.
-- Kalidas. Uttara Kalamritam.
-- Venkatesh Sharma. Sarvarth Chintamani.
-- Mantreswara. Phaladeepika.
-- Vaidyanatha Dikshita. Jataka Parijata.
-- Srimad-Bhagavatam.
-- Bhavishya Purana.
-- Surya Siddhanta.
-- Manu-Samhita.
+- [Maharishi Parashara. Brihat Parashara Hora Shastra.](https://archive.org/details/BrihatParasharaHoraShastra)
+- [Maharishi Jaimini. Jaimini Upadesha Sutras.](https://archive.org/details/JaiminiUpadeshaSutrasWithTranslation)
+- [Varahamihira. Brihat Jataka.](https://archive.org/details/BrihatJatakaBN.Rao)
+- [Varahamihira. Brihat Samhita.](https://archive.org/details/BrihatSamhitaOfVarahamihira)
+- [Kalyana Varma. Saravali.](https://archive.org/details/SaravaliKalyanaVarma)
+- [Satyacharya. Satya Jatakam.](https://archive.org/search?query=Satya%20Jatakam)
+- [Kalidas. Uttara Kalamritam.](https://archive.org/details/UttaraKalamritaKalidasaEnglish)
+- [Venkatesh Sharma. Sarvarth Chintamani.](https://archive.org/search?query=Sarvarth%20Chintamani)
+- [Mantreswara. Phaladeepika.](https://archive.org/details/PhalaDeepikaMantrashwara)
+- [Vaidyanatha Dikshita. Jataka Parijata.](https://archive.org/details/JatakaParijataVaidyanathaDikshita)
+- [Srimad-Bhagavatam.](https://vedabase.io/en/library/sb/)
+- [Bhavishya Purana.](https://archive.org/search?query=Bhavishya%20Purana)
+- [Surya Siddhanta.](https://archive.org/details/TheSuryaSiddhantaWithTranslation)
+- [Manu-Samhita.](https://archive.org/details/ManuSmriti_201601)
 
 
 ## Installation
