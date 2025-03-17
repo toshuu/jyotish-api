@@ -171,7 +171,7 @@ http://localhost:9393/api/calculate?latitude=37.28077&longitude=49.583057&year=2
       "altitude": 0
     },
     "graha": {
-      "Sy": {
+      "Su": {
         "longitude": 248.983163,
         "latitude": 0.0001772,
         "speed": 1.0183709,
@@ -195,25 +195,25 @@ http://localhost:9393/api/calculate?latitude=37.28077&longitude=49.583057&year=2
         "gocharastha": 0,
         "bhavaCharacter": "mishra",
         "tempRelation": {
-          "Ch": -1,
+          "Mo": -1,
           "Ma": 1,
-          "Bu": -1,
-          "Gu": -1,
-          "Sk": 1,
+          "Me": -1,
+          "Ju": -1,
+          "Ve": 1,
           "Sa": 1,
           "Ra": 1,
           "Ke": 1
         },
         "relation": {
-          "Ch": 0,
+          "Mo": 0,
           "Ma": 2,
-          "Bu": -1,
-          "Gu": 0,
-          "Sk": 0,
+          "Me": -1,
+          "Ju": 0,
+          "Ve": 0,
           "Sa": 0,
           "Ra": 0,
           "Ke": 0,
-          "Sy": null
+          "Su": null
         },
         "yogakaraka": false,
         "mrityu": false,
@@ -226,13 +226,13 @@ http://localhost:9393/api/calculate?latitude=37.28077&longitude=49.583057&year=2
             "shanta"
           ]
         },
-        "dispositor": "Gu"
+        "dispositor": "Ju"
       },
-      "Ch": {},
+      "Mo": {},
       "Ma": {},
-      "Bu": {},
-      "Gu": {},
-      "Sk": {},
+      "Me": {},
+      "Ju": {},
+      "Ve": {},
       "Sa": {},
       "Ra": {},
       "Ke": {},
@@ -303,17 +303,17 @@ http://localhost:9393/api/calculate?latitude=37.28077&longitude=49.583057&year=2
           "12": {},
         },
         "graha": {
-          "Sy": {
+          "Su": {
             "rashi": 3,
             "degree": 20.84846699999991,
             "speed": 1.0183709,
             "longitude": 80.84846699999991
           },
-          "Ch": {},
+          "Mo": {},
           "Ma": {},
-          "Bu": {},
-          "Gu": {},
-          "Sk": {},
+          "Me": {},
+          "Ju": {},
+          "Ve": {},
           "Sa": {},
           "Ra": {},
           "Ke": {},
@@ -358,7 +358,7 @@ http://localhost:9393/api/calculate?latitude=37.28077&longitude=49.583057&year=2
       "vara": {
         "anga": "vara",
         "left": 81.29129302863754,
-        "key": "Ch",
+        "key": "Mo",
         "week": "1",
         "name": "Somavar"
       },
@@ -370,7 +370,7 @@ http://localhost:9393/api/calculate?latitude=37.28077&longitude=49.583057&year=2
       }
     },
     "rising": {
-      "Sy": [
+      "Su": [
         {
           "rising": "2023-12-24 07:30:04",
           "setting": "2023-12-24 17:40:54"
@@ -388,7 +388,7 @@ http://localhost:9393/api/calculate?latitude=37.28077&longitude=49.583057&year=2
     "kala": {
       "hora": {
         "number": 7,
-        "key": "Bu",
+        "key": "Me",
         "interval": 3054.6666666666665,
         "left": 47.173723264949835,
         "type": "yama",
@@ -403,22 +403,22 @@ http://localhost:9393/api/calculate?latitude=37.28077&longitude=49.583057&year=2
       "start": "2018-01-12 22:49:09",
       "end": "2138-01-13 01:13:09",
       "periods": {
-        "Ch": {
+        "Mo": {
           "nesting": 1,
           "type": "mahadasha",
-          "key": "Ch",
+          "key": "Mo",
           "duration": 315569520,
           "start": "2018-01-12 22:49:09",
           "end": "2028-01-13 09:01:09"
         },
         "Ma": {},
         "Ra": {},
-        "Gu": {},
+        "Ju": {},
         "Sa": {},
-        "Bu": {},
+        "Me": {},
         "Ke": {},,
-        "Sk": {},,
-        "Sy": {},
+        "Ve": {},,
+        "Su": {},
       }
     }
   },

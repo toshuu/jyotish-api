@@ -10,11 +10,12 @@ use Symfony\Component\Routing\Annotation\Route;
 use Jyotish\Lib;
 use Psr\Log\LoggerInterface;
 use OpenApi\Annotations as OA;
+use App\Exception\ApiException;
 
 class APIController extends AbstractController
 {
-    private $logger;
-    private $chart;
+    private LoggerInterface $logger;
+    private Lib $chart;
 
     public function __construct(LoggerInterface $logger)
     {
@@ -176,6 +177,19 @@ class APIController extends AbstractController
         $startTime = microtime(true);
 
         try {
+            $requiredParams = ['latitude', 'longitude', 'year', 'month', 'day', 'hour', 'min', 'sec'];
+            $missingParams = [];
+            
+            foreach ($requiredParams as $param) {
+                if (!$request->query->has($param)) {
+                    $missingParams[] = $param;
+                }
+            }
+            
+            if (!empty($missingParams)) {
+                throw new ApiException(400, 'Missing required parameters', ['missing' => $missingParams]);
+            }
+            
             $params = [
                 'latitude' => $request->query->get('latitude'),
                 'longitude' => $request->query->get('longitude'),
@@ -185,13 +199,19 @@ class APIController extends AbstractController
                 'hour' => $request->query->get('hour'),
                 'min' => $request->query->get('min'),
                 'sec' => $request->query->get('sec'),
-                'time_zone' => $request->query->get('time_zone', 'Asia/Tehran'),
-                'dst_hour' => $request->query->get('dst_hour', 0),
-                'dst_min' => $request->query->get('dst_min', 0),
-                'nesting' => $request->query->get('nesting', 0),
-                'varga' => $request->query->has('varga') ? explode(',', $request->query->get('varga')) : ['D1'],
-                'infolevel' => $request->query->has('infolevel') ? explode(',', $request->query->get('infolevel')) : []
+                'time_zone' => $request->query->get('time_zone') ?? 'Asia/Tehran',
+                'dst_hour' => $request->query->get('dst_hour') ?? 0,
+                'dst_min' => $request->query->get('dst_min') ?? 0,
+                'nesting' => $request->query->get('nesting') ?? 0,
             ];
+            
+            $params['varga'] = $request->query->has('varga') 
+                ? array_map(fn($item) => trim($item), explode(',', $request->query->get('varga'))) 
+                : ['D1'];
+                
+            $params['infolevel'] = $request->query->has('infolevel') 
+                ? array_map(fn($item) => trim($item), explode(',', $request->query->get('infolevel'))) 
+                : [];
             
             $result = $this->chart->calculator($params);
             $this->logger->debug('Chart calculated successfully');
@@ -206,12 +226,24 @@ class APIController extends AbstractController
                 'created_at' => $createdAt,
             ];
 
-            $this->logger->info('Returning successful response', $response);
+            $this->logger->info('Returning successful response');
 
             return $this->json($response);
+        } catch (ApiException $e) {
+            $this->logger->warning('API exception: ' . $e->getMessage(), [
+                'status_code' => $e->getStatusCode(),
+                'details' => $e->getDetails(),
+            ]);
+            
+            return $this->json([
+                'error' => $e->getMessage(),
+                'details' => $e->getDetails(),
+            ], $e->getStatusCode());
         } catch (\Exception $e) {
             $this->logger->error('An error occurred: ' . $e->getMessage(), [
-                'exception' => $e,
+                'exception' => get_class($e),
+                'file' => $e->getFile(),
+                'line' => $e->getLine(),
             ]);
 
             return $this->json([
@@ -267,12 +299,18 @@ class APIController extends AbstractController
         $startTime = microtime(true);
 
         try {
-            // Default coordinates for Tehran
             $defaultLatitude = 35.7219;
             $defaultLongitude = 51.3347;
 
-            $latitude = $request->query->get('latitude', $defaultLatitude);
-            $longitude = $request->query->get('longitude', $defaultLongitude);
+            $latitude = $request->query->get('latitude') ?? $defaultLatitude;
+            $longitude = $request->query->get('longitude') ?? $defaultLongitude;
+            
+            if (!is_numeric($latitude) || !is_numeric($longitude)) {
+                throw new ApiException(400, 'Invalid coordinates', [
+                    'latitude' => $latitude,
+                    'longitude' => $longitude
+                ]);
+            }
 
             $result = $this->chart->calculateNow($latitude, $longitude);
             $this->logger->debug('Chart calculated successfully');
@@ -287,12 +325,24 @@ class APIController extends AbstractController
                 'created_at' => $createdAt,
             ];
 
-            $this->logger->info('Returning successful response', $response);
+            $this->logger->info('Returning successful response');
 
             return $this->json($response);
+        } catch (ApiException $e) {
+            $this->logger->warning('API exception: ' . $e->getMessage(), [
+                'status_code' => $e->getStatusCode(),
+                'details' => $e->getDetails(),
+            ]);
+            
+            return $this->json([
+                'error' => $e->getMessage(),
+                'details' => $e->getDetails(),
+            ], $e->getStatusCode());
         } catch (\Exception $e) {
             $this->logger->error('An error occurred: ' . $e->getMessage(), [
-                'exception' => $e,
+                'exception' => get_class($e),
+                'file' => $e->getFile(),
+                'line' => $e->getLine(),
             ]);
 
             return $this->json([
