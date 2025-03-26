@@ -217,7 +217,7 @@ http://localhost:9393/api/calculate?latitude=37.28077&longitude=49.583057&year=2
         },
         "yogakaraka": false,
         "mrityu": false,
-        "pushkaraNavamsha": false,
+        "pushkaraNavamsha": 0,
         "pushkaraBhaga": false,
         "avastha": {
           "baladi": "kumara",

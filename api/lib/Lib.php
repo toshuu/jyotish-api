@@ -363,7 +363,22 @@ class Lib
             $yogas = $data->getData(['yoga']);
             $vargaData['yogas'] = $yogas;
         }
+        $graha = $vargaData['graha'];
+        $bhava = $vargaData['bhava'];
 
+        # merge garaha and bhava
+        foreach ($bhava as $bhava_key => $bhava_value) {
+            $rashi = $bhava_value['rashi'];
+            $bhava_grahas = [];
+
+            foreach ($graha as $graha_key => $graha_value) {
+                if ($graha_value['rashi'] == $rashi) {
+                    $bhava_grahas[$graha_key] = $graha_value;
+                }
+            }
+
+            $vargaData['houses'][$bhava_key]['graha'] = $bhava_grahas;
+        }
         return $vargaData;
     }
 }
