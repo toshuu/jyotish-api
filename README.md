@@ -156,7 +156,7 @@ http://localhost:9393/api/calculate?latitude=37.28077&longitude=49.583057&year=2
 | dst_min    | integer | No       | DST minutes offset                    | 0          |
 | nesting    | integer | No       | Nesting level for calculations        | 0          |
 | varga      | string  | No       | Varga divisions (comma-separated)     | D1,D9      |
-| infolevel  | string  | No       | Info levels to include               | basic,panchanga |
+| infolevel  | string  | No       | Info levels to include               | basic,ashtakavarga,grahabala,rashibala,yogas,panchanga,transit |
 
 **Response**:
 ```json
