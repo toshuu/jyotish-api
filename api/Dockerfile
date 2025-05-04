@@ -122,3 +122,10 @@ EXPOSE 9393
 CMD service php7.4-fpm start && \
     tail -f /var/log/nginx/error.log /var/log/nginx/access.log /var/log/php7.4-fpm.log & \
     nginx -g 'daemon off;'
+
+    # Swiss Ephemeris build step
+RUN cd swetest/src && \
+    make clean && \
+    make && \
+    chmod 777 swetest/src && \
+    chmod +x swetest/src/swetest
