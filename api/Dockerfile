@@ -127,5 +127,5 @@ CMD service php7.4-fpm start && \
 RUN cd swetest/src && \
     make clean && \
     make && \
-    chmod 777 swetest/src && \
-    chmod +x swetest/src/swetest
+    chmod +x swetest
+
