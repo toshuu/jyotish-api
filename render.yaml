@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: jyotish-api
+    env: docker
+    repo: https://github.com/toshuu/jyotish-api
+    plan: free
+    dockerfilePath: api/Dockerfile
+    envVars:
+      - key: PORT
+        value: 9393
+    healthCheckPath: /api/calculate  # Adjust if a health endpoint exists
