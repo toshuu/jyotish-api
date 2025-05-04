@@ -8,4 +8,4 @@ services:
     envVars:
       - key: PORT
         value: 9393
-    healthCheckPath: /api/calculate
+    healthCheckPath: /api/ping
