@@ -8,4 +8,4 @@ services:
     envVars:
       - key: PORT
         value: 9393
-    healthCheckPath: /api/calculate  # Adjust if a health endpoint exists
+    healthCheckPath: /api/calculate
