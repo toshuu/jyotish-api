@@ -56,8 +56,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-    
-# Copy composer.json and composer.lock
+# Copy composer.json (and lock if exists)
 COPY composer.json ./
 
 # Install CORS support + project dependencies
@@ -77,9 +76,6 @@ RUN mkdir -p /var/www/api/var/cache /var/www/api/var/log && \
 # Run composer dump-autoload optimizing for production
 RUN set -eux; \
     composer dump-autoload --optimize;
-
-# Set proper permissions
-
 
 # Configure Nginx
 RUN echo ' \
@@ -111,11 +107,10 @@ RUN sed -i 's/;error_log = php_errors.log/error_log = \/var\/log\/php7.4-fpm.log
 RUN mkdir -p /var/log/nginx /var/log/php7.4-fpm && \
     chown -R www-data:www-data /var/log/nginx /var/log/php7.4-fpm
 
-# Install Symfony assets
-RUN php bin/console assets:install --symlink
-
-# Clear Symfony cache
-RUN php bin/console cache:clear
+# Add entrypoint script
+COPY docker/entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
 
 # Expose port
 EXPOSE 9393
@@ -125,9 +120,8 @@ CMD service php7.4-fpm start && \
     tail -f /var/log/nginx/error.log /var/log/nginx/access.log /var/log/php7.4-fpm.log & \
     nginx -g 'daemon off;'
 
-    # Swiss Ephemeris build step
+# Swiss Ephemeris build step
 RUN cd swetest/src && \
     make clean && \
     make && \
     chmod +x swetest
-
