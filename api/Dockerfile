@@ -58,7 +58,7 @@ RUN apt-get clean && \
 
     
 # Copy composer.json and composer.lock
-COPY composer.json composer.lock ./
+COPY api/composer.json ./
 
 # Install CORS support + project dependencies
 RUN set -eux; \
