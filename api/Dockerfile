@@ -108,9 +108,10 @@ RUN mkdir -p /var/log/nginx /var/log/php7.4-fpm && \
     chown -R www-data:www-data /var/log/nginx /var/log/php7.4-fpm
 
 # Add entrypoint script
-COPY docker/entrypoint.sh /entrypoint.sh
+COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
+
 
 # Expose port
 EXPOSE 9393
