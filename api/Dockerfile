@@ -56,11 +56,13 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+    
 # Copy composer.json and composer.lock
-COPY composer.json ./
+COPY composer.json composer.lock ./
 
-# Install composer dependencies
+# Install CORS support + project dependencies
 RUN set -eux; \
+    composer require nelmio/cors-bundle:^2.2 --no-interaction; \
     composer install --verbose --no-interaction; \
     composer clear-cache
 
